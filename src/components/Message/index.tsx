@@ -13,7 +13,7 @@ export function Message(){
       <View style={styles.footer}>
         <UserPhoto sizes='SMALL' imageUri='https://github.com/dpechetti.png' />
 
-      <Text style={styles.userName}>Nome da batatinha</Text>
+        <Text style={styles.userName}>Nome da batatinha</Text>
       </View>
     </View>
   );
