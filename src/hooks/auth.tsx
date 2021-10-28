@@ -50,8 +50,11 @@ function AuthProvider({ children }: AuthProviderProps) {
       setIsSignedIn(true)
 
       const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=${SCOPE}`
+      const returnUrl = 'exp://192.168.100.72:19000' 
+      // without returnUrl does not work
+      // https://docs.expo.dev/versions/v42.0.0/sdk/auth-session/#authsessionstartasyncoptions
 
-      const { params: { code, error }, type } = await AuthSessions.startAsync({ authUrl }) as AuthorizationResponse
+      const { params: { code, error }, type } = await AuthSessions.startAsync({ authUrl, returnUrl }) as AuthorizationResponse
       console.log({code, error, type})
       
       if (type === 'success' && error !== 'access_denied') {
